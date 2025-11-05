@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uche Okoro - UI/UX Designer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .contact-info a:hover {
+            opacity: 0.7;
+        }
+
+        nav {
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        @media (min-width: 769px) {
+            nav {
+                position: sticky;
+                top: 0;
+                z-index: 100;
+            }
+        }
+
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 1rem;
+        }
+
+        nav li {
+            margin: 0 1.5rem;
+        }
+
+        nav a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #764ba2;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        section {
+            background: white;
+            margin: 2rem 0;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h4 {
+            color: #555;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .summary {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .skill-category h4 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-category p {
+            color: #666;
+        }
+
+        .job {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .job:last-child {
+            border-bottom: none;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 0.5rem;
+        }
+
+        .job-title {
+            flex: 1;
+        }
+
+        .job-date {
+            color: #888;
+            font-weight: 600;
+        }
+
+        .company {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        ul.achievements {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul.achievements li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        ul.achievements li:before {
+            content: "▹";
+            color: #667eea;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .project {
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            background: #f9f9f9;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .project h4 {
+            color: #667eea;
+        }
+
+        .tools {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-item, .cert-item {
+            margin-bottom: 1rem;
+        }
+
+        .awards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+
+        .award {
+            padding: 1rem;
+            background: #f0f0ff;
+            border-radius: 8px;
+            border-left: 4px solid #764ba2;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav li {
+                margin: 0.5rem 0;
+            }
+
+            .job-header {
+                flex-direction: column;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Uche Okoro</h1>
+        <p>UI/UX & Graphic Designer</p>
+        <div class="contact-info">
+            <a href="mailto:uchemokoro@gmail.com">uchemokoro@gmail.com</a>
+            <a href="tel:862-888-2584">862-888-2584</a>
+            <a href="https://www.linkedin.com/in/uche-o-6674b41/" target="_blank">LinkedIn</a>
+            <a href="https://www.behance.net" target="_blank">Portfolio</a>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#awards">Awards</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="about">
+            <h2>Professional Summary</h2>
+            <p class="summary">
+                Experience Designer with over 8 years of global experience creating intuitive, user-centered digital products. 
+                Skilled in design thinking, wireframing, and usability testing. Passionate about leveraging AI tools like 
+                Midjourney and Figma to enhance customer engagement and brand storytelling. Led design teams to deliver 
+                measurable impact in B2B and tech environments.
+            </p>
+        </section>
+
+        <section id="skills">
+            <h2>Skills & Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Design & Tools</h4>
+                    <p>Figma, Adobe Creative Suite, Sketch, WordPress, Canva, Salesforce Pardot, Midjourney AI, HTML/CSS</p>
+                </div>
+                <div class="skill-category">
+                    <h4>UI/UX Expertise</h4>
+                    <p>Wireframing, Prototyping, User Testing, Design Thinking, Visual/Responsive Design</p>
+                </div>
+                <div class="skill-category">
+                    <h4>Other Skills</h4>
+                    <p>AI Prompt Engineering, SharePoint Customization, Team Management</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Professional Experience</h2>
+
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title">
+                        <h3>UI Graphic / Web Designer</h3>
+                        <p class="company">International Institute for Learning, Inc. - New York</p>
+                    </div>
+                    <span class="job-date">2021 - 2025</span>
+                </div>
+                <ul class="achievements">
+                    <li>Designed and deployed AI-powered web interfaces, boosting user engagement by 30%</li>
+                    <li>Assisted with user research and cross-functional usability testing to identify UX challenges, applying iterative design improvements that reduced bounce rate by 18%</li>
+                    <li>Created wireframes, prototypes, mockups, and website designs, ensuring an intuitive and engaging user experience</li>
+                    <li>Implemented and managed Salesforce Pardot campaigns, boosting email CTR by 25% and improving customer retention by 15%</li>
+                    <li>Collaborated cross-functionally to enhance brand consistency and optimize digital assets for scalability</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title">
+                        <h3>Sr. UI Designer</h3>
+                        <p class="company">BigCodeGen LLC - Texas</p>
+                    </div>
+                    <span class="job-date">2019 - 2021</span>
+                </div>
+                <ul class="achievements">
+                    <li>Designed user-centric interfaces focusing on user flows and navigation</li>
+                    <li>Created responsive websites and apps using Figma based on user research</li>
+                    <li>Applied responsive design principles to ensure seamless experiences across all devices and platforms</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title">
+                        <h3>Lead UI Design</h3>
+                        <p class="company">Jojayden Creative House - Chicago</p>
+                    </div>
+                    <span class="job-date">2017 - 2019</span>
+                </div>
+                <ul class="achievements">
+                    <li>Developed end-to-end design systems, wireframes, and visual UI specifications</li>
+                    <li>Optimized signup flow UX, increasing conversion by 22%</li>
+                    <li>Conducted usability testing to validate design choices and improve overall functionality</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div class="job-title">
+                        <h3>Sr. UI / UX Designer</h3>
+                        <p class="company">Tavia Technologies - Lagos</p>
+                    </div>
+                    <span class="job-date">2010 - 2016</span>
+                </div>
+                <ul class="achievements">
+                    <li>Led a team of 10 designers and developers to deliver global telecom projects with a focus on seamless UX</li>
+                    <li>Designed and developed a high-revenue telecom website, using strategic branding and redesign to improve conversion rates by 3.6%</li>
+                    <li>Built a reporting system for functional units, streamlining internal workflows and increasing efficiency</li>
+                    <li>Conducted usability testing with 20+ users to validate new interfaces</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Featured Projects</h2>
+
+            <div class="project">
+                <h4>Intrado Virtual Conference Platform Design</h4>
+                <p class="tools">Tools: Figma, Adobe Illustrator, Photoshop, InDesign</p>
+                <ul class="achievements">
+                    <li>Designed branded virtual conference environments for global training events</li>
+                    <li>Created landing pages, session dashboards, and interactive exhibitor booths to improve attendee engagement</li>
+                    <li>Delivered consistent, scalable visual assets and templates aligned with corporate identity</li>
+                </ul>
+            </div>
+
+            <div class="project">
+                <h4>E-learning Dashboard & Website</h4>
+                <p class="tools">Tools: Figma, Adobe Photoshop, WordPress</p>
+                <ul class="achievements">
+                    <li>Designed and prototyped an e-learning dashboard and training website to enhance student learning journeys</li>
+                    <li>Developed modular components in Figma, improving completion time by 40%</li>
+                    <li>Collaborated with educators and SMEs to align UI/UX with instructional design principles</li>
+                </ul>
+            </div>
+
+            <div class="project">
+                <h4>Salesforce Pardot Email Campaigns</h4>
+                <p class="tools">Tools: Salesforce Pardot, Adobe Photoshop, Illustrator, InDesign</p>
+                <ul class="achievements">
+                    <li>Designed personalized email campaign templates aligned with brand identity</li>
+                    <li>Improved email CTR by 25% and customer retention by 15% through optimized layouts and visual hierarchy</li>
+                    <li>Collaborated with marketing teams to implement A/B testing and refine design strategies</li>
+                </ul>
+            </div>
+
+            <div class="project">
+                <h4>Banking Portal Redesign</h4>
+                <p class="tools">Tools: Figma, Adobe Photoshop, Illustrator, InDesign, CorelDRAW, HTML/CSS</p>
+                <ul class="achievements">
+                    <li>Designed banking online portal with new information architecture and content strategy</li>
+                    <li>Produced wireframes, flow diagrams, and mockups to streamline customer transactions</li>
+                    <li>Conducted usability testing with stakeholders to validate and refine design solutions</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>Education & Certifications</h2>
+            
+            <h3 style="margin-top: 1.5rem;">Education</h3>
+            <div class="education-item">
+                <h4>Non-Credit Professional Certificate, Graphic Design</h4>
+                <p>University Of Colorado - Colorado, USA</p>
+            </div>
+            <div class="education-item">
+                <h4>BTEC - Higher National Diploma, Business Management</h4>
+                <p>Brighton School of Business & Management - London, United Kingdom</p>
+            </div>
+
+            <h3 style="margin-top: 2rem;">Certifications</h3>
+            <div class="cert-item">
+                <p>• Foundations of UX Design – Google</p>
+                <p>• UX Design Process: Empathize, Define, and Ideate – Google</p>
+                <p>• The Guide to AI & Prompt Engineering – Udemy ChatGPT Masterclass</p>
+                <p>• SharePoint Customization and Branding – SP Innovations</p>
+                <p>• User-Centered Design (UCD) – Globe Soft, Egypt</p>
+            </div>
+        </section>
+
+        <section id="awards">
+            <h2>Awards & Recognition</h2>
+            <div class="awards">
+                <div class="award">
+                    <h4>Microsoft Awards</h4>
+                    <p>Contributed to the Tavia team's success in winning the Microsoft Rookie of the Year, Microsoft Customer Experience Award, and Microsoft Country Managers Award</p>
+                </div>
+                <div class="award">
+                    <h4>Best UX/UI Design Award</h4>
+                    <p>Received the "Best UX/UI Design" award at a prominent industry event for an innovative design solution</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Uche Okoro. All rights reserved.</p>
+    </footer>
+</body>
+</html>
